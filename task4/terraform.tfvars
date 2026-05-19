@@ -1,0 +1,5 @@
+yc_token     = "y0__wgBEM-pzaIBGMHdEyCkuePJFzCak--RCNl5OjtAY9gZBZHNMZPGnCSWpHkf"
+yc_cloud_id  = "b1gjdasrrm44iustkecr"
+yc_folder_id = "b1g0gl21gvuob04239io"
+zone         = "ru-central1-a"
+public_key_path = "id_rsa.pub"
