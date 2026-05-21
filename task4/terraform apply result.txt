@@ -1,0 +1,491 @@
+/workspace # terraform apply
+yandex_compute_disk.clinic_data: Refreshing state... [id=fhmndmdntjv3050c68ii]
+yandex_compute_disk.ai_data: Refreshing state... [id=fhml6fvtm1efi1euahq6]
+data.yandex_compute_image.ubuntu_image: Reading...
+yandex_vpc_network.future2: Refreshing state... [id=enpi89l17gqid4u4sk16]
+yandex_compute_disk.kafka_data: Refreshing state... [id=fhm3n0ut6kj5jupl050l]
+yandex_compute_disk.fintech_data: Refreshing state... [id=fhm7qtmhoemqsudrav0s]
+yandex_vpc_gateway.nat_gateway: Refreshing state... [id=enpkq1amvv9ogufle0ql]
+yandex_compute_image.ubuntu: Refreshing state... [id=fd8u5rjci3fi1a1ui3fr]
+yandex_compute_disk.analytics_data: Refreshing state... [id=fhmsk0aqn7smeq3l5kra]
+data.yandex_compute_image.ubuntu_image: Read complete after 0s [id=fd85f16aij1rvpce9gas]
+yandex_vpc_subnet.subnet_a: Refreshing state... [id=e9bujlmvb8knj819kng0]
+yandex_vpc_security_group.common_sg: Refreshing state... [id=enp0srg8mtspit5ml5a3]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+  - destroy
+
+Terraform will perform the following actions:
+
+  # yandex_compute_image.ubuntu will be destroyed
+  # (because yandex_compute_image.ubuntu is not in configuration)
+  - resource "yandex_compute_image" "ubuntu" {
+      - created_at    = "2026-05-19T22:38:46Z" -> null
+      - folder_id     = "b1g0gl21gvuob04239io" -> null
+      - id            = "fd8u5rjci3fi1a1ui3fr" -> null
+      - labels        = {} -> null
+      - min_disk_size = 8 -> null
+        name          = null
+      - os_type       = "LINUX" -> null
+      - pooled        = false -> null
+      - product_ids   = [
+          - "f2e0a5f7mhcgtthtffj2",
+        ] -> null
+      - size          = 2 -> null
+      - source_family = "ubuntu-2204-lts" -> null
+      - status        = "ready" -> null
+        # (2 unchanged attributes hidden)
+
+      - hardware_generation {
+          - legacy_features {
+              - pci_topology = "PCI_TOPOLOGY_V2" -> null
+            }
+        }
+    }
+
+  # yandex_compute_instance.ai will be created
+  + resource "yandex_compute_instance" "ai" {
+      + created_at                = (known after apply)
+      + folder_id                 = (known after apply)
+      + fqdn                      = (known after apply)
+      + gpu_cluster_id            = (known after apply)
+      + hardware_generation       = (known after apply)
+      + hostname                  = (known after apply)
+      + id                        = (known after apply)
+      + maintenance_grace_period  = (known after apply)
+      + maintenance_policy        = (known after apply)
+      + metadata                  = {
+          + "ssh-keys" = <<-EOT
+                ubuntu:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCPR24iKS8QZEPU4iDQDwhORZvQD4IfWiBxsCvV4VLcLMJG79Xsl/e4jq93J61iIAxe0hsrmWGdkEfBE4QGv3MwwoW5zrJjoIaTLIcQ4zGN80Anlp12mmDN3TwoobdMPp11UgzdZnMdEEXF
+VpD6ZLhX7yMos3wqxlNLugwzH0ZnEdrLZuZZIb+32o+ggx48cxMKkjBsrsK+5XHeVYB7PrUj9HNmbKv+qsgH1VvURqNU6TI7AQo4DC12YlXcF0jmBUIXylvTCi7VyjW15ApTPfggTyRyXi4bnR/fxPbEvA96lU+TrHKG/4zDrXx20jYAWtrBlTimqwXGCpg+1aapL2Ri9lP
+BAHkoCM+M7QdqqDDkYkBm01/9aa+0pIdv7LXnJEKs97XFj8RZ0Bcy5BWGXVISrSmAGplUDQMxhr4aPRSEhsRPRbWeGpAZGUf9HrxbbIRvON5ZLJubd35PulGdiEJgEtUQ9+D5ZVZAYR96TBthOIj+8wzEpeh9Q2acuPb7uu0= root@a7777888d900
+            EOT
+        }
+      + name                      = "ai-vm"
+      + network_acceleration_type = "standard"
+      + platform_id               = "standard-v3"
+      + status                    = (known after apply)
+      + zone                      = "ru-central1-a"
+
+      + boot_disk {
+          + auto_delete = true
+          + device_name = (known after apply)
+          + disk_id     = (known after apply)
+          + mode        = (known after apply)
+
+          + initialize_params {
+              + block_size  = (known after apply)
+              + description = (known after apply)
+              + image_id    = "fd85f16aij1rvpce9gas"
+              + name        = (known after apply)
+              + size        = 50
+              + snapshot_id = (known after apply)
+              + type        = "network-hdd"
+            }
+        }
+
+      + metadata_options (known after apply)
+
+      + network_interface {
+          + index              = (known after apply)
+          + ip_address         = (known after apply)
+          + ipv4               = true
+          + ipv6               = (known after apply)
+          + ipv6_address       = (known after apply)
+          + mac_address        = (known after apply)
+          + nat                = true
+          + nat_ip_address     = (known after apply)
+          + nat_ip_version     = (known after apply)
+          + security_group_ids = [
+              + "enp0srg8mtspit5ml5a3",
+            ]
+          + subnet_id          = "e9bujlmvb8knj819kng0"
+        }
+
+      + placement_policy (known after apply)
+
+      + resources {
+          + core_fraction = 100
+          + cores         = 4
+          + memory        = 8
+        }
+
+      + scheduling_policy (known after apply)
+    }
+
+  # yandex_compute_instance.analytics will be created
+  + resource "yandex_compute_instance" "analytics" {
+      + created_at                = (known after apply)
+      + folder_id                 = (known after apply)
+      + fqdn                      = (known after apply)
+      + gpu_cluster_id            = (known after apply)
+      + hardware_generation       = (known after apply)
+      + hostname                  = (known after apply)
+      + id                        = (known after apply)
+      + maintenance_grace_period  = (known after apply)
+      + maintenance_policy        = (known after apply)
+      + metadata                  = {
+          + "ssh-keys" = <<-EOT
+                ubuntu:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCPR24iKS8QZEPU4iDQDwhORZvQD4IfWiBxsCvV4VLcLMJG79Xsl/e4jq93J61iIAxe0hsrmWGdkEfBE4QGv3MwwoW5zrJjoIaTLIcQ4zGN80Anlp12mmDN3TwoobdMPp11UgzdZnMdEEXF
+VpD6ZLhX7yMos3wqxlNLugwzH0ZnEdrLZuZZIb+32o+ggx48cxMKkjBsrsK+5XHeVYB7PrUj9HNmbKv+qsgH1VvURqNU6TI7AQo4DC12YlXcF0jmBUIXylvTCi7VyjW15ApTPfggTyRyXi4bnR/fxPbEvA96lU+TrHKG/4zDrXx20jYAWtrBlTimqwXGCpg+1aapL2Ri9lP
+BAHkoCM+M7QdqqDDkYkBm01/9aa+0pIdv7LXnJEKs97XFj8RZ0Bcy5BWGXVISrSmAGplUDQMxhr4aPRSEhsRPRbWeGpAZGUf9HrxbbIRvON5ZLJubd35PulGdiEJgEtUQ9+D5ZVZAYR96TBthOIj+8wzEpeh9Q2acuPb7uu0= root@a7777888d900
+            EOT
+        }
+      + name                      = "analytics-vm"
+      + network_acceleration_type = "standard"
+      + platform_id               = "standard-v3"
+      + status                    = (known after apply)
+      + zone                      = "ru-central1-a"
+
+      + boot_disk {
+          + auto_delete = true
+          + device_name = (known after apply)
+          + disk_id     = (known after apply)
+          + mode        = (known after apply)
+
+          + initialize_params {
+              + block_size  = (known after apply)
+              + description = (known after apply)
+              + image_id    = "fd85f16aij1rvpce9gas"
+              + name        = (known after apply)
+              + size        = 100
+              + snapshot_id = (known after apply)
+              + type        = "network-hdd"
+            }
+        }
+
+      + metadata_options (known after apply)
+
+      + network_interface {
+          + index              = (known after apply)
+          + ip_address         = (known after apply)
+          + ipv4               = true
+          + ipv6               = (known after apply)
+          + ipv6_address       = (known after apply)
+          + mac_address        = (known after apply)
+          + nat                = true
+          + nat_ip_address     = (known after apply)
+          + nat_ip_version     = (known after apply)
+          + security_group_ids = [
+              + "enp0srg8mtspit5ml5a3",
+            ]
+          + subnet_id          = "e9bujlmvb8knj819kng0"
+        }
+
+      + placement_policy (known after apply)
+
+      + resources {
+          + core_fraction = 100
+          + cores         = 4
+          + memory        = 8
+        }
+
+      + scheduling_policy (known after apply)
+    }
+
+  # yandex_compute_instance.clinic will be created
+  + resource "yandex_compute_instance" "clinic" {
+      + created_at                = (known after apply)
+      + folder_id                 = (known after apply)
+      + fqdn                      = (known after apply)
+      + gpu_cluster_id            = (known after apply)
+      + hardware_generation       = (known after apply)
+      + hostname                  = (known after apply)
+      + id                        = (known after apply)
+      + maintenance_grace_period  = (known after apply)
+      + maintenance_policy        = (known after apply)
+      + metadata                  = {
+          + "ssh-keys" = <<-EOT
+                ubuntu:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCPR24iKS8QZEPU4iDQDwhORZvQD4IfWiBxsCvV4VLcLMJG79Xsl/e4jq93J61iIAxe0hsrmWGdkEfBE4QGv3MwwoW5zrJjoIaTLIcQ4zGN80Anlp12mmDN3TwoobdMPp11UgzdZnMdEEXF
+VpD6ZLhX7yMos3wqxlNLugwzH0ZnEdrLZuZZIb+32o+ggx48cxMKkjBsrsK+5XHeVYB7PrUj9HNmbKv+qsgH1VvURqNU6TI7AQo4DC12YlXcF0jmBUIXylvTCi7VyjW15ApTPfggTyRyXi4bnR/fxPbEvA96lU+TrHKG/4zDrXx20jYAWtrBlTimqwXGCpg+1aapL2Ri9lP
+BAHkoCM+M7QdqqDDkYkBm01/9aa+0pIdv7LXnJEKs97XFj8RZ0Bcy5BWGXVISrSmAGplUDQMxhr4aPRSEhsRPRbWeGpAZGUf9HrxbbIRvON5ZLJubd35PulGdiEJgEtUQ9+D5ZVZAYR96TBthOIj+8wzEpeh9Q2acuPb7uu0= root@a7777888d900
+            EOT
+        }
+      + name                      = "clinic-vm"
+      + network_acceleration_type = "standard"
+      + platform_id               = "standard-v3"
+      + status                    = (known after apply)
+      + zone                      = "ru-central1-a"
+
+      + boot_disk {
+          + auto_delete = true
+          + device_name = (known after apply)
+          + disk_id     = (known after apply)
+          + mode        = (known after apply)
+
+          + initialize_params {
+              + block_size  = (known after apply)
+              + description = (known after apply)
+              + image_id    = "fd85f16aij1rvpce9gas"
+              + name        = (known after apply)
+              + size        = 30
+              + snapshot_id = (known after apply)
+              + type        = "network-hdd"
+            }
+        }
+
+      + metadata_options (known after apply)
+
+      + network_interface {
+          + index              = (known after apply)
+          + ip_address         = (known after apply)
+          + ipv4               = true
+          + ipv6               = (known after apply)
+          + ipv6_address       = (known after apply)
+          + mac_address        = (known after apply)
+          + nat                = true
+          + nat_ip_address     = (known after apply)
+          + nat_ip_version     = (known after apply)
+          + security_group_ids = [
+              + "enp0srg8mtspit5ml5a3",
+            ]
+          + subnet_id          = "e9bujlmvb8knj819kng0"
+        }
+
+      + placement_policy (known after apply)
+
+      + resources {
+          + core_fraction = 100
+          + cores         = 2
+          + memory        = 4
+        }
+
+      + scheduling_policy (known after apply)
+    }
+
+  # yandex_compute_instance.fintech will be created
+  + resource "yandex_compute_instance" "fintech" {
+      + created_at                = (known after apply)
+      + folder_id                 = (known after apply)
+      + fqdn                      = (known after apply)
+      + gpu_cluster_id            = (known after apply)
+      + hardware_generation       = (known after apply)
+      + hostname                  = (known after apply)
+      + id                        = (known after apply)
+      + maintenance_grace_period  = (known after apply)
+      + maintenance_policy        = (known after apply)
+      + metadata                  = {
+          + "ssh-keys" = <<-EOT
+                ubuntu:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCPR24iKS8QZEPU4iDQDwhORZvQD4IfWiBxsCvV4VLcLMJG79Xsl/e4jq93J61iIAxe0hsrmWGdkEfBE4QGv3MwwoW5zrJjoIaTLIcQ4zGN80Anlp12mmDN3TwoobdMPp11UgzdZnMdEEXF
+VpD6ZLhX7yMos3wqxlNLugwzH0ZnEdrLZuZZIb+32o+ggx48cxMKkjBsrsK+5XHeVYB7PrUj9HNmbKv+qsgH1VvURqNU6TI7AQo4DC12YlXcF0jmBUIXylvTCi7VyjW15ApTPfggTyRyXi4bnR/fxPbEvA96lU+TrHKG/4zDrXx20jYAWtrBlTimqwXGCpg+1aapL2Ri9lP
+BAHkoCM+M7QdqqDDkYkBm01/9aa+0pIdv7LXnJEKs97XFj8RZ0Bcy5BWGXVISrSmAGplUDQMxhr4aPRSEhsRPRbWeGpAZGUf9HrxbbIRvON5ZLJubd35PulGdiEJgEtUQ9+D5ZVZAYR96TBthOIj+8wzEpeh9Q2acuPb7uu0= root@a7777888d900
+            EOT
+        }
+      + name                      = "fintech-vm"
+      + network_acceleration_type = "standard"
+      + platform_id               = "standard-v3"
+      + status                    = (known after apply)
+      + zone                      = "ru-central1-a"
+
+      + boot_disk {
+          + auto_delete = true
+          + device_name = (known after apply)
+          + disk_id     = (known after apply)
+          + mode        = (known after apply)
+
+          + initialize_params {
+              + block_size  = (known after apply)
+              + description = (known after apply)
+              + image_id    = "fd85f16aij1rvpce9gas"
+              + name        = (known after apply)
+              + size        = 30
+              + snapshot_id = (known after apply)
+              + type        = "network-hdd"
+            }
+        }
+
+      + metadata_options (known after apply)
+
+      + network_interface {
+          + index              = (known after apply)
+          + ip_address         = (known after apply)
+          + ipv4               = true
+          + ipv6               = (known after apply)
+          + ipv6_address       = (known after apply)
+          + mac_address        = (known after apply)
+          + nat                = true
+          + nat_ip_address     = (known after apply)
+          + nat_ip_version     = (known after apply)
+          + security_group_ids = [
+              + "enp0srg8mtspit5ml5a3",
+            ]
+          + subnet_id          = "e9bujlmvb8knj819kng0"
+        }
+
+      + placement_policy (known after apply)
+
+      + resources {
+          + core_fraction = 100
+          + cores         = 2
+          + memory        = 4
+        }
+
+      + scheduling_policy (known after apply)
+    }
+
+  # yandex_compute_instance.kafka will be created
+  + resource "yandex_compute_instance" "kafka" {
+      + created_at                = (known after apply)
+      + folder_id                 = (known after apply)
+      + fqdn                      = (known after apply)
+      + gpu_cluster_id            = (known after apply)
+      + hardware_generation       = (known after apply)
+      + hostname                  = (known after apply)
+      + id                        = (known after apply)
+      + maintenance_grace_period  = (known after apply)
+      + maintenance_policy        = (known after apply)
+      + metadata                  = {
+          + "ssh-keys" = <<-EOT
+                ubuntu:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCPR24iKS8QZEPU4iDQDwhORZvQD4IfWiBxsCvV4VLcLMJG79Xsl/e4jq93J61iIAxe0hsrmWGdkEfBE4QGv3MwwoW5zrJjoIaTLIcQ4zGN80Anlp12mmDN3TwoobdMPp11UgzdZnMdEEXF
+VpD6ZLhX7yMos3wqxlNLugwzH0ZnEdrLZuZZIb+32o+ggx48cxMKkjBsrsK+5XHeVYB7PrUj9HNmbKv+qsgH1VvURqNU6TI7AQo4DC12YlXcF0jmBUIXylvTCi7VyjW15ApTPfggTyRyXi4bnR/fxPbEvA96lU+TrHKG/4zDrXx20jYAWtrBlTimqwXGCpg+1aapL2Ri9lP
+BAHkoCM+M7QdqqDDkYkBm01/9aa+0pIdv7LXnJEKs97XFj8RZ0Bcy5BWGXVISrSmAGplUDQMxhr4aPRSEhsRPRbWeGpAZGUf9HrxbbIRvON5ZLJubd35PulGdiEJgEtUQ9+D5ZVZAYR96TBthOIj+8wzEpeh9Q2acuPb7uu0= root@a7777888d900
+            EOT
+        }
+      + name                      = "kafka-vm"
+      + network_acceleration_type = "standard"
+      + platform_id               = "standard-v3"
+      + status                    = (known after apply)
+      + zone                      = "ru-central1-a"
+
+      + boot_disk {
+          + auto_delete = true
+          + device_name = (known after apply)
+          + disk_id     = (known after apply)
+          + mode        = (known after apply)
+
+          + initialize_params {
+              + block_size  = (known after apply)
+              + description = (known after apply)
+              + image_id    = "fd85f16aij1rvpce9gas"
+              + name        = (known after apply)
+              + size        = 50
+              + snapshot_id = (known after apply)
+              + type        = "network-hdd"
+            }
+        }
+
+      + metadata_options (known after apply)
+
+      + network_interface {
+          + index              = (known after apply)
+          + ip_address         = (known after apply)
+          + ipv4               = true
+          + ipv6               = (known after apply)
+          + ipv6_address       = (known after apply)
+          + mac_address        = (known after apply)
+          + nat                = true
+          + nat_ip_address     = (known after apply)
+          + nat_ip_version     = (known after apply)
+          + security_group_ids = [
+              + "enp0srg8mtspit5ml5a3",
+            ]
+          + subnet_id          = "e9bujlmvb8knj819kng0"
+        }
+
+      + placement_policy (known after apply)
+
+      + resources {
+          + core_fraction = 100
+          + cores         = 2
+          + memory        = 4
+        }
+
+      + scheduling_policy (known after apply)
+    }
+
+  # yandex_vpc_gateway.nat_gateway will be destroyed
+  # (because yandex_vpc_gateway.nat_gateway is not in configuration)
+  - resource "yandex_vpc_gateway" "nat_gateway" {
+      - created_at  = "2026-05-19T22:38:46Z" -> null
+      - folder_id   = "b1g0gl21gvuob04239io" -> null
+      - id          = "enpkq1amvv9ogufle0ql" -> null
+      - labels      = {} -> null
+      - name        = "nat-gateway" -> null
+        # (1 unchanged attribute hidden)
+
+      - shared_egress_gateway {}
+    }
+
+Plan: 5 to add, 0 to change, 2 to destroy.
+
+Changes to Outputs:
+  + ai_vm_ip        = (known after apply)
+  + analytics_vm_ip = (known after apply)
+  + clinic_vm_ip    = (known after apply)
+  + fintech_vm_ip   = (known after apply)
+  + kafka_vm_ip     = (known after apply)
+╷
+│ Warning: Cannot connect to YC tool initialization service. Network connectivity to the service is required for provider version control.
+│ 
+│
+│   with provider["registry.terraform.io/yandex-cloud/yandex"],
+│   on main.tf line 10, in provider "yandex":
+│   10: provider "yandex" {
+│
+╵
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+yandex_compute_image.ubuntu: Destroying... [id=fd8u5rjci3fi1a1ui3fr]
+yandex_vpc_gateway.nat_gateway: Destroying... [id=enpkq1amvv9ogufle0ql]
+yandex_compute_instance.ai: Creating...
+yandex_compute_instance.kafka: Creating...
+yandex_compute_instance.clinic: Creating...
+yandex_compute_instance.fintech: Creating...
+yandex_compute_instance.analytics: Creating...
+yandex_vpc_gateway.nat_gateway: Destruction complete after 1s
+yandex_compute_image.ubuntu: Still destroying... [id=fd8u5rjci3fi1a1ui3fr, 00m10s elapsed]
+yandex_compute_instance.ai: Still creating... [00m10s elapsed]
+yandex_compute_instance.kafka: Still creating... [00m10s elapsed]
+yandex_compute_instance.clinic: Still creating... [00m10s elapsed]
+yandex_compute_instance.analytics: Still creating... [00m10s elapsed]
+yandex_compute_instance.fintech: Still creating... [00m10s elapsed]
+yandex_compute_image.ubuntu: Destruction complete after 10s
+yandex_compute_instance.kafka: Still creating... [00m20s elapsed]
+yandex_compute_instance.ai: Still creating... [00m20s elapsed]
+yandex_compute_instance.fintech: Still creating... [00m20s elapsed]
+yandex_compute_instance.clinic: Still creating... [00m20s elapsed]
+yandex_compute_instance.analytics: Still creating... [00m20s elapsed]
+yandex_compute_instance.ai: Still creating... [00m30s elapsed]
+yandex_compute_instance.kafka: Still creating... [00m30s elapsed]
+yandex_compute_instance.clinic: Still creating... [00m30s elapsed]
+yandex_compute_instance.fintech: Still creating... [00m30s elapsed]
+yandex_compute_instance.analytics: Still creating... [00m30s elapsed]
+yandex_compute_instance.ai: Still creating... [00m40s elapsed]
+yandex_compute_instance.kafka: Still creating... [00m40s elapsed]
+yandex_compute_instance.fintech: Still creating... [00m40s elapsed]
+yandex_compute_instance.clinic: Still creating... [00m40s elapsed]
+yandex_compute_instance.analytics: Still creating... [00m40s elapsed]
+yandex_compute_instance.ai: Creation complete after 50s [id=fhmmkoqce820f388mpg8]
+yandex_compute_instance.kafka: Creation complete after 50s [id=fhmaf73hc0oov0k9gbqg]
+yandex_compute_instance.analytics: Still creating... [00m50s elapsed]
+yandex_compute_instance.fintech: Still creating... [00m50s elapsed]
+yandex_compute_instance.clinic: Still creating... [00m50s elapsed]
+yandex_compute_instance.clinic: Creation complete after 50s [id=fhmr5h3jfkadqkvva9i1]
+yandex_compute_instance.fintech: Creation complete after 50s [id=fhm369qfbes7eu6tmr0j]
+yandex_compute_instance.analytics: Creation complete after 53s [id=fhm8vidqc2bkesfh7vpl]
+╷
+│ Warning: Cannot connect to YC tool initialization service. Network connectivity to the service is required for provider version control.
+│ 
+│
+│   with provider["registry.terraform.io/yandex-cloud/yandex"],
+│   on main.tf line 10, in provider "yandex":
+│   10: provider "yandex" {
+│
+╵
+
+Apply complete! Resources: 5 added, 0 changed, 2 destroyed.
+
+Outputs:
+
+ai_vm_ip = "51.250.65.45"
+analytics_vm_ip = "51.250.84.196"
+clinic_vm_ip = "51.250.91.147"
+fintech_vm_ip = "89.169.154.228"
+kafka_vm_ip = "89.169.145.117"
+vpc_network_id = "enpi89l17gqid4u4sk16"
